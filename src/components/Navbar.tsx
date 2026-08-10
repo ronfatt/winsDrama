@@ -1,10 +1,10 @@
 import React from 'react';
-import { Film, Clapperboard, Table, FileText, Users, Building2, Printer, Search, Smartphone } from 'lucide-react';
+import { Film, Clapperboard, Table, FileText, Users, Building2, Printer, Search, Smartphone, BookOpen } from 'lucide-react';
 import { DRAMA_SERIES_INFO } from '../data/dramaData';
 
 interface NavbarProps {
-  currentView: 'mobile' | 'storyboard' | 'shotlist' | 'script' | 'characters' | 'brand';
-  setCurrentView: (view: 'mobile' | 'storyboard' | 'shotlist' | 'script' | 'characters' | 'brand') => void;
+  currentView: 'mobile' | 'synopsis' | 'storyboard' | 'shotlist' | 'script' | 'characters' | 'brand';
+  setCurrentView: (view: 'mobile' | 'synopsis' | 'storyboard' | 'shotlist' | 'script' | 'characters' | 'brand') => void;
   searchQuery: string;
   setSearchQuery: (query: string) => void;
   completedShotsCount: number;
@@ -58,6 +58,19 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* View Switchers (Scrollable Bar for Mobile Thumb Nav) */}
         <div className="flex items-center gap-1 bg-slate-900/90 p-1 rounded-xl border border-slate-800 w-full md:w-auto overflow-x-auto no-scrollbar">
+          {/* Ringkasan Cerita (Story Synopsis Button) */}
+          <button
+            onClick={() => setCurrentView('synopsis')}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all whitespace-nowrap ${
+              currentView === 'synopsis'
+                ? 'bg-amber-500 text-slate-950 font-extrabold shadow-sm'
+                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+            }`}
+          >
+            <BookOpen className="w-3.5 h-3.5 text-amber-400" />
+            <span>📖 Ringkasan Cerita</span>
+          </button>
+
           {/* Mobile Field Shooting Mode Button */}
           <button
             onClick={() => setCurrentView('mobile')}

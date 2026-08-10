@@ -14,6 +14,7 @@ export interface Shot {
 }
 
 export interface Episode {
+  synopsis: string;
   id: number;
   title: string;
   subtitle: string;
@@ -117,6 +118,7 @@ export const CHARACTERS: Character[] = [
 export const EPISODES: Episode[] = [
   {
     id: 1,
+    synopsis: "Azlan duduk lesu di gerai Wins Garden Cafe mengira wang berbaki RM17.40. Pembekal telur menelefon menuntut hutang. Lina dari Perfect Success Capital Sdn Bhd datang memesan nasi lemak. Selepas makan, Lina bertanyakan kos sebenar RM5. Lina mengira beras, santan, telur, gas dan sewa — mendapati untung bersih tidak sampai RM1. Azlan terkejut. Lina memberikan kad nama dan meminta Azlan membawa semua rekod bisnes esok.",
     title: "EPISOD 1",
     subtitle: "TINGGAL RM17",
     duration: "3:00",
@@ -267,6 +269,7 @@ export const EPISODES: Episode[] = [
   },
   {
     id: 2,
+    synopsis: "Azlan datang membawa beg plastik penuh resit kusam, termasuk resit kedai kasut peribadi. Azlan meminta pembiayaan modal, tetapi Lina menolak kerana perniagaan Azlan mengalami kebocoran tunai. Panglima menyampuk memberi kiasan baldi berlubang. Lina memberikan Cabaran 14 Hari: catatsemua jualan, perbelanjaan, dan kurangkan menu yang tidak laku.",
     title: "EPISOD 2",
     subtitle: "BUKAN SEMUA ORANG PERLU PINJAM DUIT",
     duration: "3:00",
@@ -397,6 +400,7 @@ export const EPISODES: Episode[] = [
   },
   {
     id: 3,
+    synopsis: "Selepas 14 hari, Lina dan Panglima melihat menu Azlan terlalu banyak (Nasi Lemak, Mee Goreng, Burger, Mi Sup). Panglima menegur gerai seperti pasar malam. Lina menerangkan simpanan stok berlebihan membawa pembaziran modal. Lina mencadangkan fokus Nasi Lemak dengan 3 kategori: Biasa (RM5), Ayam (RM8), dan Premium. Lina membawa lobster segar Semporna dan mencadangkan Nasi Lemak Lobster.",
     title: "EPISOD 3",
     subtitle: "NASI LEMAK RM5 ATAU RM8?",
     duration: "3:00",
@@ -496,6 +500,7 @@ export const EPISODES: Episode[] = [
   },
   {
     id: 4,
+    synopsis: "Azlan memasak Nasi Lemak Lobster pertama. Panglima mencuba dan meminta tambah sambal kerana mahu menambah set kedua. Lina merakam video pendek 15 saat di media sosial. Video menjadi tular dan barisan pelanggan beratur panjang di Wins Garden Cafe. Jualan melonjak RM1,480. Azlan gembira menyangka terus kaya, tetapi Lina menyampuk bertanya: Untung berapa?",
     title: "EPISOD 4",
     subtitle: "NASI LEMAK LOBSTER",
     duration: "3:00",
@@ -595,6 +600,7 @@ export const EPISODES: Episode[] = [
   },
   {
     id: 5,
+    synopsis: "Walaupun jualan cecah ribuan ringgit, akaun bank Azlan tetap nipis. Panglima mendapati 4 ekor lobster rosak di peti sejuk. Lina mendedahkan kebocoran: Azlan belanja kawan makan percuma dan beli telefon pintar baharu guna duit gerai. Lina mengajar sistem 5 Tabung Kewangan (Operasi, Stok, Simpanan, Gaji Pemilik, Kecemasan).",
     title: "EPISOD 5",
     subtitle: "SALES BANYAK, DUIT MANA?",
     duration: "3:00",
@@ -693,6 +699,7 @@ export const EPISODES: Episode[] = [
   },
   {
     id: 6,
+    synopsis: "Azlan memohon RM30,000 daripada Perfect Success Capital untuk ubah suai kedai bagi kecantikan. Lina menegur kecantikan tidak semestinya menaikkan jualan. Lina membimbing Azlan menyusun senarai aset produktif (peti sejuk komersial, peralatan panggangan, sistem POS). Permohonan lulus selepas penilaian PSC, tetapi Lina memberi amaran ujian sebenar baru bermula.",
     title: "EPISOD 6",
     subtitle: "MODAL BUKAN DUIT PERCUMA",
     duration: "3:00",
@@ -778,6 +785,7 @@ export const EPISODES: Episode[] = [
   },
   {
     id: 7,
+    synopsis: "Nasi Lemak Lobster semakin popular, tetapi timbul krisis perkhidmatan: pelanggan menunggu 40 minit, pesanan tersilap, dan sambal habis. Panglima membaca komen negatif TikTok. Lina membantu membina SOP dapur: nombor pesanan, pemasa 10 minit, dan stesen kerja teratur. Pelanggan gembira dan berjanji akan datang lagi.",
     title: "EPISOD 7",
     subtitle: "BILA BISNES SUDAH VIRAL",
     duration: "3:00",
@@ -873,6 +881,7 @@ export const EPISODES: Episode[] = [
   },
   {
     id: 8,
+    synopsis: "Hujan lebat mencurah di Semporna dan jualan terhempas 70%. Lina mencadangkan diversifikasi pendapatan: catering pejabat, majlis hari jadi, dan tempahan berkumpulan. Panglima menunjukkan ruang dewan separa terbuka terbiar berhampiran pantai di Wins Garden. Azlan mula membayangkan perniagaan acara (event business).",
     title: "EPISOD 8",
     subtitle: "JANGAN JUAL NASI LEMAK SAJA",
     duration: "3:00",
@@ -969,6 +978,7 @@ export const EPISODES: Episode[] = [
   },
   {
     id: 9,
+    synopsis: "Azlan mahu mengubah suai dewan dengan lampu mahal, tetapi Lina menahan dan menyuruh menguji pasaran dahulu (Lean MVP). Mereka menganjurkan sambutan hari jadi pertama dengan dekorasi ringkas dan penceramah tempatan. Majlis berjalan lancar. Azlan terharu memegang RM5 lama mengenangkan permulaannya. Panglima menyampaikan berita tempahan hall seterusnya.",
     title: "EPISOD 9",
     subtitle: "DARIPADA NASI LEMAK KE EVENT BUSINESS",
     duration: "3:00",
@@ -1080,6 +1090,7 @@ export const EPISODES: Episode[] = [
   },
   {
     id: 10,
+    synopsis: "Setahun kemudian, Wins Garden Cafe dan dewan majlis makmur berkembang. Azlan bertemu peniaga muda yang tertekan. Azlan berkongsi bahawa masalah sebenar bukannya kekurangan duit, tetapi tidak tahu mengurus bisnes. Lina dan Panglima menegaskan: Modal boleh buka pintu, tetapi ilmu dan pengurusan menentukan masa depan perniagaan.",
     title: "EPISOD 10",
     subtitle: "BUKAN SEBAB DUIT",
     duration: "3:30",

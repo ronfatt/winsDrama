@@ -9,11 +9,12 @@ import { ScriptView } from './components/ScriptView';
 import { CharacterSection } from './components/CharacterSection';
 import { BrandSection } from './components/BrandSection';
 import { MobileShootingView } from './components/MobileShootingView';
+import { StorySummarySection } from './components/StorySummarySection';
 import { Sparkles } from 'lucide-react';
 
 export function App() {
   const [selectedEpId, setSelectedEpId] = useState<number>(1);
-  const [currentView, setCurrentView] = useState<'mobile' | 'storyboard' | 'shotlist' | 'script' | 'characters' | 'brand'>('mobile');
+  const [currentView, setCurrentView] = useState<'mobile' | 'synopsis' | 'storyboard' | 'shotlist' | 'script' | 'characters' | 'brand'>('synopsis');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   // LocalStorage state for completed shots and notes
@@ -57,6 +58,11 @@ export function App() {
     }));
   };
 
+  const handleSelectEpAndGoToStoryboard = (epId: number) => {
+    setSelectedEpId(epId);
+    setCurrentView('storyboard');
+  };
+
   // Shot counters
   const totalShots = EPISODES.reduce((acc, ep) => acc + ep.shots.length, 0);
   const completedShotsCount = Object.values(completedShots).filter(Boolean).length;
@@ -95,7 +101,7 @@ export function App() {
       />
 
       {/* Hero Poster Banner (Desktop / Large View Only) */}
-      {!isSearching && currentView !== 'brand' && currentView !== 'characters' && currentView !== 'mobile' && (
+      {!isSearching && currentView !== 'brand' && currentView !== 'characters' && currentView !== 'mobile' && currentView !== 'synopsis' && (
         <div className="relative border-b border-slate-800 bg-slate-900/60 overflow-hidden no-print">
           <div className="max-w-7xl mx-auto px-4 lg:px-8 py-6 lg:py-8 flex flex-col md:flex-row items-center justify-between gap-6">
             {/* Hero Text */}
@@ -145,7 +151,7 @@ export function App() {
       )}
 
       {/* Episode Selector Matrix */}
-      {!isSearching && currentView !== 'brand' && currentView !== 'characters' && (
+      {!isSearching && currentView !== 'brand' && currentView !== 'characters' && currentView !== 'synopsis' && (
         <EpisodeSelector
           episodes={EPISODES}
           selectedEpId={selectedEpId}
@@ -183,7 +189,14 @@ export function App() {
           </div>
         ) : (
           <>
-            {/* View 0: Mobile Field Shooting Mode (📱 Mode Penggambaran Telefon) */}
+            {/* View 0: Story Synopsis Section (📖 Ringkasan Jalan Cerita 10 Episod) */}
+            {currentView === 'synopsis' && (
+              <StorySummarySection
+                onSelectEpAndGoToStoryboard={handleSelectEpAndGoToStoryboard}
+              />
+            )}
+
+            {/* View 1: Mobile Field Shooting Mode (📱 Mode Penggambaran Telefon) */}
             {currentView === 'mobile' && (
               <MobileShootingView
                 episode={currentEpisode}
@@ -194,7 +207,7 @@ export function App() {
               />
             )}
 
-            {/* View 1: Storyboard Grid Mode */}
+            {/* View 2: Storyboard Grid Mode */}
             {currentView === 'storyboard' && (
               <div className="space-y-6">
                 <EpisodeHeader episode={currentEpisode} />
@@ -208,7 +221,7 @@ export function App() {
               </div>
             )}
 
-            {/* View 2: DP Shotlist Table Mode */}
+            {/* View 3: DP Shotlist Table Mode */}
             {currentView === 'shotlist' && (
               <div className="space-y-6">
                 <EpisodeHeader episode={currentEpisode} />
@@ -222,7 +235,7 @@ export function App() {
               </div>
             )}
 
-            {/* View 3: Actor & Script Mode */}
+            {/* View 4: Actor & Script Mode */}
             {currentView === 'script' && (
               <div className="space-y-6">
                 <EpisodeHeader episode={currentEpisode} />
@@ -230,12 +243,12 @@ export function App() {
               </div>
             )}
 
-            {/* View 4: Main Characters */}
+            {/* View 5: Main Characters */}
             {currentView === 'characters' && (
               <CharacterSection />
             )}
 
-            {/* View 5: Brand Hub & Philosophy */}
+            {/* View 6: Brand Hub & Philosophy */}
             {currentView === 'brand' && (
               <BrandSection />
             )}
