@@ -37,10 +37,10 @@ export const ShotlistTable: React.FC<ShotlistTableProps> = ({
             <span className="bg-amber-500 text-slate-950 font-bold text-xs px-2.5 py-0.5 rounded">
               EPISOD {epId}
             </span>
-            <h3 className="text-base font-bold text-white">{epSubtitle} — Shot List 现场排单</h3>
+            <h3 className="text-base font-bold text-white">{epSubtitle} — Shot List Senarai Shot</h3>
           </div>
           <p className="text-xs text-slate-400 mt-1">
-            包含主线镜头 (Main)、B-Roll 细节及空景/环境镜头 (Establishing)。
+            Mengandungi shot utama (Main)、B-Roll detail B-Roll dan suasana/shot suasana (Establishing) (Establishing)。
           </p>
         </div>
         <div className="text-xs text-right text-slate-400">
@@ -53,9 +53,9 @@ export const ShotlistTable: React.FC<ShotlistTableProps> = ({
         <table className="w-full text-left text-xs text-slate-300 border-collapse">
           <thead className="bg-slate-900 text-slate-400 font-bold uppercase tracking-wider text-[11px] border-b border-slate-800">
             <tr>
-              <th className="py-3.5 px-4 w-12 text-center no-print">状态</th>
+              <th className="py-3.5 px-4 w-12 text-center no-print">Status</th>
               <th className="py-3.5 px-3 w-20">Shot #</th>
-              <th className="py-3.5 px-3 w-28">分类</th>
+              <th className="py-3.5 px-3 w-28">Kategori</th>
               <th className="py-3.5 px-4 w-44">Kamera & Angle</th>
               <th className="py-3.5 px-4">Adegan & Aksi Visual</th>
               <th className="py-3.5 px-4">Watak & Dialog / VO</th>
@@ -96,7 +96,7 @@ export const ShotlistTable: React.FC<ShotlistTableProps> = ({
                   {/* Shot Category */}
                   <td className="py-3 px-3">
                     <span className={`text-[10px] font-bold px-2 py-0.5 rounded border block text-center ${getCategoryBadgeClass(shot.shotCategory)}`}>
-                      {shot.shotCategory === 'Establishing' ? '🌅 空景' : shot.shotCategory === 'BRoll' ? '🔍 B-Roll' : '🎥 主线'}
+                      {shot.shotCategory === 'Establishing' ? '🌅 Suasana' : shot.shotCategory === 'BRoll' ? '🔍 B-Roll' : '🎥 Utama'}
                     </span>
                   </td>
 

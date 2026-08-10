@@ -11,7 +11,7 @@ export const ScriptView: React.FC<ScriptViewProps> = ({ episode }) => {
     if (!speaker) return 'bg-slate-800 text-slate-300';
     if (speaker.includes('AZLAN')) return 'bg-amber-500/20 text-amber-300 border-amber-500/40';
     if (speaker.includes('LINA')) return 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40';
-    if (speaker.includes('PAK DIN')) return 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40';
+    if (speaker.includes('PANGLIMA')) return 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40';
     return 'bg-purple-500/20 text-purple-300 border-purple-500/40';
   };
 

@@ -45,11 +45,11 @@ export const StoryboardGrid: React.FC<StoryboardGridProps> = ({
   const getCategoryBadge = (cat?: Shot['shotCategory']) => {
     switch (cat) {
       case 'Establishing':
-        return { label: '🌅 空景 / 环境 (Establishing)', class: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40' };
+        return { label: '🌅 Suasana (Establishing)', class: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40' };
       case 'BRoll':
-        return { label: '🔍 B-Roll 细节 (Detail)', class: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40' };
+        return { label: '🔍 Detail B-Roll (Detail)', class: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40' };
       default:
-        return { label: '🎥 主线画面 (Main)', class: 'bg-amber-500/20 text-amber-300 border-amber-500/40' };
+        return { label: '🎥 Shot Utama (Main) (Main)', class: 'bg-amber-500/20 text-amber-300 border-amber-500/40' };
     }
   };
 
@@ -78,12 +78,12 @@ export const StoryboardGrid: React.FC<StoryboardGridProps> = ({
 
   return (
     <div className="space-y-5">
-      {/* On-Set Shooting Filter Bar (边看边拍 - 分类筛选) */}
+      {/* On-Set Shooting Filter Bar (Mode Penggambaran - Tapis Kategori Shot) */}
       <div className="bg-slate-900/90 p-4 rounded-2xl border border-slate-800 space-y-3 no-print">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="flex items-center gap-2 text-xs font-bold text-white uppercase tracking-wider">
             <Film className="w-4 h-4 text-amber-400" />
-            <span>边看边拍模式 • 分类筛选 (Shooting Category Filter):</span>
+            <span>Mode Penggambaran Pengarah • Tapis Kategori Shot (Shooting Category Filter):</span>
           </div>
 
           {/* Category Tabs */}
@@ -96,7 +96,7 @@ export const StoryboardGrid: React.FC<StoryboardGridProps> = ({
                   : 'bg-slate-950 text-slate-400 border-slate-800 hover:text-white'
               }`}
             >
-              全部镜头 ({shots.length})
+              Semua Shot ({shots.length})
             </button>
 
             <button
@@ -107,7 +107,7 @@ export const StoryboardGrid: React.FC<StoryboardGridProps> = ({
                   : 'bg-slate-950 text-amber-300 border-slate-800 hover:text-white'
               }`}
             >
-              🎥 主线故事 ({mainCount})
+              🎥 Shot Utama ({mainCount})
             </button>
 
             <button
@@ -118,7 +118,7 @@ export const StoryboardGrid: React.FC<StoryboardGridProps> = ({
                   : 'bg-slate-950 text-cyan-300 border-slate-800 hover:text-white'
               }`}
             >
-              🔍 B-Roll 细节 ({brollCount})
+              🔍 Detail B-Roll ({brollCount})
             </button>
 
             <button
@@ -129,14 +129,14 @@ export const StoryboardGrid: React.FC<StoryboardGridProps> = ({
                   : 'bg-slate-950 text-emerald-300 border-slate-800 hover:text-white'
               }`}
             >
-              🌅 空景/环境 ({establishingCount})
+              🌅 Suasana (Establishing) ({establishingCount})
             </button>
           </div>
         </div>
 
         {/* Secondary Visual Type Pills */}
         <div className="pt-2 border-t border-slate-800 flex flex-wrap items-center gap-1.5 text-[11px]">
-          <span className="text-slate-400 font-medium mr-1">剧情节点 (Type):</span>
+          <span className="text-slate-400 font-medium mr-1">Jenis Visual (Type) (Type):</span>
           {['all', 'Hook', 'Conflict', 'Lesson', 'Action', 'Climax', 'Cliffhanger'].map(type => (
             <button
               key={type}
@@ -147,7 +147,7 @@ export const StoryboardGrid: React.FC<StoryboardGridProps> = ({
                   : 'bg-slate-950 text-slate-400 border-slate-800 hover:text-slate-200'
               }`}
             >
-              {type === 'all' ? '全部' : type}
+              {type === 'all' ? 'Semua' : type}
             </button>
           ))}
         </div>
@@ -213,12 +213,12 @@ export const StoryboardGrid: React.FC<StoryboardGridProps> = ({
                       {isFilmed ? (
                         <>
                           <CheckSquare className="w-4 h-4" />
-                          <span>已拍摄</span>
+                          <span>Disiapkan</span>
                         </>
                       ) : (
                         <>
-                          <Square className="w-4 h-4" />
-                          <span>点击已拍</span>
+                          <Square className="w-4 h-4 text-slate-400" />
+                          <span>Tanda Siap</span>
                         </>
                       )}
                     </button>
@@ -230,7 +230,7 @@ export const StoryboardGrid: React.FC<StoryboardGridProps> = ({
                   {/* Scene & Action */}
                   <div>
                     <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
-                      🎬 画面与动作 (Action & Staging)
+                      🎬 Visual & Aksi (Action) (Action & Staging)
                     </div>
                     <p className="text-xs text-slate-200 font-medium leading-relaxed bg-slate-950/60 p-2.5 rounded-xl border border-slate-800/80">
                       <strong className="text-amber-400 font-semibold">{shot.scene} </strong>
@@ -244,7 +244,7 @@ export const StoryboardGrid: React.FC<StoryboardGridProps> = ({
                       <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1 flex items-center justify-between">
                         <span className="flex items-center gap-1 text-cyan-400">
                           <MessageSquare className="w-3 h-3" />
-                          对白 / 旁白 (Dialogue / VO)
+                          Dialog / Suara Latar (VO) (Dialogue / VO)
                         </span>
                         <span className="text-[10px] text-amber-300 font-semibold">{shot.character}</span>
                       </div>
@@ -258,7 +258,7 @@ export const StoryboardGrid: React.FC<StoryboardGridProps> = ({
                   <div>
                     <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1 flex items-center gap-1 text-emerald-400">
                       <Volume2 className="w-3 h-3" />
-                      音效 & 音乐 (Audio / SFX)
+                      Panduan Audio & SFX (Audio / SFX)
                     </div>
                     <div className="bg-slate-950/80 p-2 rounded-xl border border-slate-800 text-[11px] text-emerald-300/90 font-mono">
                       {shot.audio}
@@ -269,7 +269,7 @@ export const StoryboardGrid: React.FC<StoryboardGridProps> = ({
                   <div>
                     <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1 flex items-center gap-1 text-amber-400">
                       <Lightbulb className="w-3 h-3" />
-                      摄影与灯光指导 (DP Guide)
+                      Panduan Pengarah & Kamera (DP) (DP Guide)
                     </div>
                     <p className="text-[11px] text-slate-300 bg-slate-950/60 p-2 rounded-xl border border-slate-800/80">
                       {shot.lighting}
@@ -290,7 +290,7 @@ export const StoryboardGrid: React.FC<StoryboardGridProps> = ({
                     type="text"
                     value={userNote}
                     onChange={(e) => onSaveNote(shot.shotNo, e.target.value)}
-                    placeholder="现场拍摄备注 (自动保存)..."
+                    placeholder="Nota Penggambaran Set (disimpan automatik)..."
                     className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-300 placeholder-slate-600 focus:outline-none focus:border-amber-500"
                   />
                 </div>

@@ -80,7 +80,7 @@ export const MobileShootingView: React.FC<MobileShootingViewProps> = ({
             </h3>
           </div>
           <span className="text-xs font-bold text-emerald-400 bg-emerald-950/60 px-2.5 py-1 rounded-full border border-emerald-500/30">
-            {completedCount}/{totalCount} 已拍 ({progressPercent}%)
+            {completedCount}/{totalCount} Siap ({progressPercent}%)
           </span>
         </div>
 
@@ -102,7 +102,7 @@ export const MobileShootingView: React.FC<MobileShootingViewProps> = ({
                 : 'bg-slate-950 text-slate-400 border-slate-800'
             }`}
           >
-            全部 ({episode.shots.length})
+            Semua ({episode.shots.length})
           </button>
 
           <button
@@ -113,7 +113,7 @@ export const MobileShootingView: React.FC<MobileShootingViewProps> = ({
                 : 'bg-slate-950 text-amber-300 border-slate-800'
             }`}
           >
-            🎥 主线
+            🎥 Utama
           </button>
 
           <button
@@ -124,7 +124,7 @@ export const MobileShootingView: React.FC<MobileShootingViewProps> = ({
                 : 'bg-slate-950 text-cyan-300 border-slate-800'
             }`}
           >
-            🔍 细节
+            🔍 Detail
           </button>
 
           <button
@@ -135,7 +135,7 @@ export const MobileShootingView: React.FC<MobileShootingViewProps> = ({
                 : 'bg-slate-950 text-emerald-300 border-slate-800'
             }`}
           >
-            🌅 空景
+            🌅 Suasana
           </button>
         </div>
       </div>
@@ -148,7 +148,7 @@ export const MobileShootingView: React.FC<MobileShootingViewProps> = ({
           className="flex items-center gap-1 px-3 py-2 rounded-lg bg-slate-800 disabled:opacity-30 disabled:pointer-events-none text-slate-200 font-bold active:scale-95 transition-all"
         >
           <ChevronLeft className="w-4 h-4 text-amber-400" />
-          <span>上一镜头</span>
+          <span>Shot Sebelumnya</span>
         </button>
 
         <div className="text-center font-extrabold text-amber-300">
@@ -160,7 +160,7 @@ export const MobileShootingView: React.FC<MobileShootingViewProps> = ({
           disabled={activeShotIndex === filteredShots.length - 1}
           className="flex items-center gap-1 px-3 py-2 rounded-lg bg-slate-800 disabled:opacity-30 disabled:pointer-events-none text-slate-200 font-bold active:scale-95 transition-all"
         >
-          <span>下一镜头</span>
+          <span>Shot Seterusnya</span>
           <ChevronRight className="w-4 h-4 text-amber-400" />
         </button>
       </div>
@@ -193,7 +193,7 @@ export const MobileShootingView: React.FC<MobileShootingViewProps> = ({
                 ? 'bg-cyan-950/90 text-cyan-300 border-cyan-500/40'
                 : 'bg-amber-950/90 text-amber-300 border-amber-500/40'
             }`}>
-              {currentShot.shotCategory === 'Establishing' ? '🌅 空景' : currentShot.shotCategory === 'BRoll' ? '🔍 B-Roll' : '🎥 主线'}
+              {currentShot.shotCategory === 'Establishing' ? '🌅 Suasana' : currentShot.shotCategory === 'BRoll' ? '🔍 B-Roll' : '🎥 Utama'}
             </span>
           </div>
 
@@ -212,7 +212,7 @@ export const MobileShootingView: React.FC<MobileShootingViewProps> = ({
           <div>
             <div className="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider mb-1 flex items-center gap-1">
               <Film className="w-3.5 h-3.5 text-amber-400" />
-              画面与动作 (Action):
+              Visual & Aksi (Action) (Action):
             </div>
             <p className="text-sm font-semibold text-slate-100 bg-slate-950/80 p-3 rounded-xl border border-slate-800 leading-relaxed">
               <strong className="text-amber-400 block mb-0.5">{currentShot.scene}</strong>
@@ -226,7 +226,7 @@ export const MobileShootingView: React.FC<MobileShootingViewProps> = ({
               <div className="text-[11px] font-extrabold text-cyan-400 uppercase tracking-wider mb-1 flex items-center justify-between">
                 <span className="flex items-center gap-1">
                   <MessageSquare className="w-3.5 h-3.5" />
-                  对白 / 旁白 (Dialogue):
+                  Dialog / Suara Latar (VO) (Dialogue):
                 </span>
                 <span className="text-amber-300 font-bold text-xs">{currentShot.character}</span>
               </div>
@@ -240,7 +240,7 @@ export const MobileShootingView: React.FC<MobileShootingViewProps> = ({
           <div>
             <div className="text-[11px] font-extrabold text-emerald-400 uppercase tracking-wider mb-1 flex items-center gap-1">
               <Volume2 className="w-3.5 h-3.5" />
-              音效提示 (Audio Cue):
+              Panduan Audio & SFX (Audio Cue):
             </div>
             <div className="bg-slate-950 p-2.5 rounded-xl border border-slate-800 text-xs font-mono text-emerald-300">
               {currentShot.audio}
@@ -251,14 +251,14 @@ export const MobileShootingView: React.FC<MobileShootingViewProps> = ({
           <div>
             <div className="text-[11px] font-extrabold text-amber-400 uppercase tracking-wider mb-1 flex items-center gap-1">
               <Lightbulb className="w-3.5 h-3.5" />
-              摄影/灯光 (DP Cue):
+              Panduan DP & Lampu (DP Cue):
             </div>
             <p className="text-xs text-slate-300 bg-slate-950 p-2.5 rounded-xl border border-slate-800 leading-relaxed">
               {currentShot.lighting}
             </p>
           </div>
 
-          {/* GIANT ONE-TOUCH SHOOTING BUTTON (单手打卡大按钮) */}
+          {/* GIANT ONE-TOUCH SHOOTING BUTTON (Butang Tanda Siap) */}
           <button
             onClick={() => onToggleShot(currentShot.shotNo)}
             className={`w-full py-3.5 px-4 rounded-xl font-extrabold text-sm flex items-center justify-center gap-2 shadow-xl active:scale-95 transition-all ${
@@ -270,12 +270,12 @@ export const MobileShootingView: React.FC<MobileShootingViewProps> = ({
             {isCurrentFilmed ? (
               <>
                 <CheckCircle2 className="w-5 h-5" />
-                <span>✓ SHOT {currentShot.shotNo} 已拍摄 (FILMED)</span>
+                <span>✓ SHOT {currentShot.shotNo} Disiapkan (FILMED)</span>
               </>
             ) : (
               <>
                 <Square className="w-5 h-5" />
-                <span>点击标记为【已拍摄】 (SHOT {currentShot.shotNo})</span>
+                <span>TANDA SIAP PENGGAMBARAN【Disiapkan】 (SHOT {currentShot.shotNo})</span>
               </>
             )}
           </button>
@@ -286,7 +286,7 @@ export const MobileShootingView: React.FC<MobileShootingViewProps> = ({
               type="text"
               value={currentNote}
               onChange={(e) => onSaveNote(currentShot.shotNo, e.target.value)}
-              placeholder="现场备注 (自动保存)..."
+              placeholder="Nota Penggambaran Set (disimpan automatik)..."
               className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-200 placeholder-slate-600 focus:outline-none focus:border-amber-500"
             />
           </div>

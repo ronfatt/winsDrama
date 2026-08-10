@@ -183,7 +183,7 @@ export function App() {
           </div>
         ) : (
           <>
-            {/* View 0: Mobile Field Shooting Mode (📱 手机单手边看边拍模式) */}
+            {/* View 0: Mobile Field Shooting Mode (📱 Mode Penggambaran Telefon) */}
             {currentView === 'mobile' && (
               <MobileShootingView
                 episode={currentEpisode}

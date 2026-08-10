@@ -41,7 +41,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               </div>
               <p className="text-[11px] text-slate-400 mt-0.5 flex items-center gap-1">
                 <span className="text-cyan-400 font-medium">Wins Garden Deck</span> • {DRAMA_SERIES_INFO.brand}
-                <span className="ml-2 text-emerald-400 font-bold">({completedShotsCount}/{totalShotsCount} 拍完)</span>
+                <span className="ml-2 text-emerald-400 font-bold">({completedShotsCount}/{totalShotsCount} siap)</span>
               </p>
             </div>
           </div>
@@ -68,7 +68,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             }`}
           >
             <Smartphone className="w-3.5 h-3.5" />
-            <span>📱 手机拍摄模式</span>
+            <span>📱 Mode Telefon</span>
           </button>
 
           <button
@@ -80,7 +80,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             }`}
           >
             <Clapperboard className="w-3.5 h-3.5" />
-            <span>分镜故事版</span>
+            <span>Storyboard Visual</span>
           </button>
 
           <button
@@ -92,7 +92,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             }`}
           >
             <Table className="w-3.5 h-3.5" />
-            <span>现场排单</span>
+            <span>Senarai Shot</span>
           </button>
 
           <button
@@ -104,7 +104,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             }`}
           >
             <FileText className="w-3.5 h-3.5" />
-            <span>对白剧本</span>
+            <span>Skrip Dialog Pelakon</span>
           </button>
 
           <button
@@ -116,7 +116,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             }`}
           >
             <Users className="w-3.5 h-3.5" />
-            <span>主要人物</span>
+            <span>Watak Utama</span>
           </button>
 
           <button
@@ -128,7 +128,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             }`}
           >
             <Building2 className="w-3.5 h-3.5" />
-            <span>PSC 品牌</span>
+            <span>Jenama PSC</span>
           </button>
         </div>
 
