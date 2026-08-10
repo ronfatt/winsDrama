@@ -8,11 +8,12 @@ import { ShotlistTable } from './components/ShotlistTable';
 import { ScriptView } from './components/ScriptView';
 import { CharacterSection } from './components/CharacterSection';
 import { BrandSection } from './components/BrandSection';
+import { MobileShootingView } from './components/MobileShootingView';
 import { Sparkles } from 'lucide-react';
 
 export function App() {
   const [selectedEpId, setSelectedEpId] = useState<number>(1);
-  const [currentView, setCurrentView] = useState<'storyboard' | 'shotlist' | 'script' | 'characters' | 'brand'>('storyboard');
+  const [currentView, setCurrentView] = useState<'mobile' | 'storyboard' | 'shotlist' | 'script' | 'characters' | 'brand'>('mobile');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   // LocalStorage state for completed shots and notes
@@ -93,8 +94,8 @@ export function App() {
         totalShotsCount={totalShots}
       />
 
-      {/* Hero Poster & Branding Section (Hidden during search or specific sub-views) */}
-      {!isSearching && currentView !== 'brand' && currentView !== 'characters' && (
+      {/* Hero Poster Banner (Desktop / Large View Only) */}
+      {!isSearching && currentView !== 'brand' && currentView !== 'characters' && currentView !== 'mobile' && (
         <div className="relative border-b border-slate-800 bg-slate-900/60 overflow-hidden no-print">
           <div className="max-w-7xl mx-auto px-4 lg:px-8 py-6 lg:py-8 flex flex-col md:flex-row items-center justify-between gap-6">
             {/* Hero Text */}
@@ -109,7 +110,7 @@ export function App() {
               </h1>
 
               <p className="text-xs sm:text-sm text-slate-300 max-w-2xl font-medium leading-relaxed">
-                Daripada gerai kecil di Semporna hingga membina perniagaan dewan majlis. Portal rujukan lengkap pengarah, jurukamera (DP) & pelakon untuk penggambaran setiap episod.
+                Daripada gerai kecil di Semporna hingga membina perniagaan dewan majlis di Wins Garden Cafe.
               </p>
 
               <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-1 text-xs">
@@ -134,7 +135,7 @@ export function App() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent flex items-end p-3.5">
                 <div className="text-xs">
-                  <div className="text-amber-400 font-bold">Nasi Lemak Lobster</div>
+                  <div className="text-amber-400 font-bold">Wins Garden Cafe, Semporna</div>
                   <div className="text-[10px] text-slate-300 italic">"Modal membantu kita bermula. Ilmu membantu kita bertahan."</div>
                 </div>
               </div>
@@ -154,7 +155,7 @@ export function App() {
       )}
 
       {/* Main Container */}
-      <main className="max-w-7xl mx-auto px-4 lg:px-8 pt-6">
+      <main className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 pt-4">
         {/* Global Search Results View */}
         {isSearching ? (
           <div className="space-y-6">
@@ -182,7 +183,18 @@ export function App() {
           </div>
         ) : (
           <>
-            {/* View 1: Storyboard Mode */}
+            {/* View 0: Mobile Field Shooting Mode (📱 手机单手边看边拍模式) */}
+            {currentView === 'mobile' && (
+              <MobileShootingView
+                episode={currentEpisode}
+                completedShots={completedShots}
+                shotNotes={shotNotes}
+                onToggleShot={handleToggleShot}
+                onSaveNote={handleSaveNote}
+              />
+            )}
+
+            {/* View 1: Storyboard Grid Mode */}
             {currentView === 'storyboard' && (
               <div className="space-y-6">
                 <EpisodeHeader episode={currentEpisode} />
@@ -232,13 +244,13 @@ export function App() {
       </main>
 
       {/* Footer */}
-      <footer className="mt-16 border-t border-slate-800/80 py-8 px-4 text-center text-xs text-slate-500 no-print">
-        <div className="max-w-7xl mx-auto space-y-2">
+      <footer className="mt-16 border-t border-slate-800/80 py-6 px-4 text-center text-xs text-slate-500 no-print">
+        <div className="max-w-7xl mx-auto space-y-1.5">
           <p className="font-bold text-slate-400">
-            NASI LEMAK NAIK KELAS • Siri Drama Pendek 10 Episod
+            NASI LEMAK NAIK KELAS • Wins Garden Cafe • Siri Drama Pendek 10 Episod
           </p>
           <p>
-            Hak Cipta Dikekalkan © Perfect Success Capital Sdn Bhd. Direka khas untuk memudahkan kru penggambaran, pengarah & pelakon.
+            Hak Cipta Dikekalkan © Perfect Success Capital Sdn Bhd.
           </p>
         </div>
       </footer>
